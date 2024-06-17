@@ -37,70 +37,32 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="shop.html">Shop</a>
-                <a class="dropdown-item" href="product-single.html">Single Product</a>
-              </div>
-            </li>
-            <li class="nav-item cart active"><a href="cart.html" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
-    
-            <!-- Elements for logged-out users -->
-            <li class="nav-item dropdown logged-out">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Login</a>
-                <a class="dropdown-item" href="#" class="nav-link" data-toggle="modal" data-target="#registrasiModal">Registrasi</a>
-              </div>
-            </li>
-    
-            <!-- Elements for logged-in users -->
-            <li class="nav-item dropdown logged-in" style="display: none;">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="#" id="logoutButton">Logout</a>
-              </div>
-            </li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+  
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="checkLogin(event)">Shop</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+            <a href="#" class="dropdown-item" onclick="checkLogin(event, 'shop.html')">Shop</a>
+            <a href="#" class="dropdown-item" onclick="checkLogin(event, 'product-single.html')">Single Product</a>
+            </div>
+          </li>
+          <li class="nav-item cart"><a href="#" class="nav-link" onclick="checkLogin(event, 'cart.html')"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
+          <li class="nav-item"><a href="#" class="nav-link" onclick="logout()" id="logoutLink" style="display: none;">Logout</a></li>
+          <li class="nav-item dropdown" id="loginLink">
+            <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="checkLogin(event)">Account</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#registrasiModal">Registrasi</a>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#loginModal">Login</a>
+            </div>
+          </li>
           </ul>
         </div>
-      </div>
-    </nav>
-    
-    <!-- Registrasi Modal -->
-    <div class="modal fade" id="registrasiModal" tabindex="-1" role="dialog" aria-labelledby="registrasiModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content" style="background-color: black;">
-          <div class="modal-header">
-            <h5 class="modal-title" id="registrasiModalLabel">Registrasi</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="registrasiForm">
-              <div class="form-group">
-                <label for="registrasiEmail">Email address</label>
-                <input type="email" class="form-control" id="registrasiEmail" placeholder="text here">
-              </div>
-              <div class="form-group">
-                <label for="registrasiPassword">Password</label>
-                <input type="password" class="form-control" id="registrasiPassword" placeholder="text here">
-              </div>
-              <div class="form-group">
-                <label for="registrasiConfirmPassword">Confirm Password</label>
-                <input type="password" class="form-control" id="registrasiConfirmPassword" placeholder="text here">
-              </div>
-              <button type="submit" class="btn btn-primary">Register</button>
-            </form>
-          </div>
         </div>
-      </div>
-    </div>
+      </nav>
+        
     
-    <!-- Login Modal -->
+      <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: black;">
@@ -120,12 +82,123 @@
                 <label for="loginPassword">Password</label>
                 <input type="password" class="form-control" id="loginPassword" placeholder="text here">
               </div>
+              <p>Anda belum punya akun? <a href="#" data-toggle="modal" data-target="#registrasiModal">Registrasi di sini</a></p>
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
           </div>
         </div>
       </div>
     </div>
+  
+    <!-- registrasi Modal -->
+    <div class="modal fade" id="registrasiModal" tabindex="-1" role="dialog" aria-labelledby="registrasiModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: black;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registrasiModalLabel">REGISTRASI</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="registrasiForm">
+          <div class="form-group">
+            <label for="registrasiEmail">Email address</label>
+            <input type="email" class="form-control" id="registrasiEmail" placeholder="text here" required>
+          </div>
+          <div class="form-group">
+            <label for="registrasiPassword">Password</label>
+            <input type="password" class="form-control" id="registrasiPassword" placeholder="text here" required>
+          </div>
+          <div class="form-group">
+            <label for="registrasiConfirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="registrasiConfirmPassword" placeholder="text here" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        </div>
+      </div>
+      </div>
+      
+      <script>
+      // Cek apakah user sudah login
+      function isLoggedIn() {
+        return localStorage.getItem('loggedIn') === 'true';
+      }
+    
+      // Fungsi untuk mengecek status login
+      function checkLogin(event, redirectUrl) {
+        if (!isLoggedIn()) {
+        event.preventDefault();
+        $('#loginModal').modal('show');
+        } else if (redirectUrl) {
+        window.location.href = redirectUrl;
+        }
+      }
+    
+      // Fungsi untuk logout
+      function logout() {
+        localStorage.removeItem('loggedIn');
+        alert('Anda telah logout.');
+        updateLoginStatus();
+      }
+    
+      // Fungsi untuk mengupdate tampilan login/logout
+      function updateLoginStatus() {
+        if (isLoggedIn()) {
+        document.getElementById('loginLink').style.display = 'none';
+        document.getElementById('logoutLink').style.display = 'block';
+        } else {
+        document.getElementById('loginLink').style.display = 'block';
+        document.getElementById('logoutLink').style.display = 'none';
+        }
+      }
+    
+      // Form submission event listener
+      document.getElementById('registrasiForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Ambil nilai dari input username dan password
+        var email = document.getElementById('registrasiEmail').value;
+        var password = document.getElementById('registrasiPassword').value;
+        var valid = document.getElementById('registrasiConfirmPassword').value;
+    
+        // Cek kredensial login
+        if (email === 'muhammadalif1213@gmail.com' && password === '123456' && valid === '123456') {
+        localStorage.setItem('loggedIn', 'true');
+        $('#registrasiModal').modal('hide');
+        alert('Registrasi berhasil! Anda sekarang sudah login.');
+        updateLoginStatus();
+        } else {
+        alert('Username atau password salah. Silakan coba lagi.');
+        }
+      });
+  
+      // Form submission event listener
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Ambil nilai dari input username dan password
+        var email1 = document.getElementById('loginEmail').value;
+        var password1 = document.getElementById('loginPassword').value;
+    
+        // Cek kredensial login
+        if (email1 === 'muhammadalif1213@gmail.com' && password1 === '123456') {
+        localStorage.setItem('loggedIn', 'true');
+        $('#loginForm').modal('hide');
+        alert('Login berhasil! Anda sekarang sudah login.');
+        updateLoginStatus();
+        } else {
+        alert('Username atau password salah. Silakan coba lagi.');
+        }
+      });
+    
+      // Update status login saat halaman dimuat
+      document.addEventListener('DOMContentLoaded', function() {
+        updateLoginStatus();
+      });
+      
+      </script>
+    
       <!-- END nav -->
 
     <section class="home-slider owl-carousel">
@@ -370,7 +443,7 @@
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Jl. Brawijaya, Geblagan, Tamantirto, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55183</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 878-7013-3425</span></a></li>
+	                <li><a href="https://wa.me/+6289604639862"><span class="icon icon-phone"></span><span class="text">+62 878-7013-3425</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">bcoffee@umy.ac.id</span></a></li>
 	              </ul>
 	            </div>

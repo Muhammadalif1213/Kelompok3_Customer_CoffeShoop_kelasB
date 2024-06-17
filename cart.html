@@ -33,74 +33,36 @@
 		<div class="container">
 			<a class="navbar-brand" href="index.html" style="color: white; font-size: 40px;"><b>BCoffee</b></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
+			  <span class="oi oi-menu"></span> Menu
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="shop.html">Shop</a>
-							<a class="dropdown-item" href="product-single.html">Single Product</a>
-						</div>
-					</li>
-					<li class="nav-item cart active"><a href="cart.html" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
-	
-					<!-- Elements for logged-out users -->
-					<li class="nav-item dropdown logged-out">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Login</a>
-							<a class="dropdown-item" href="#" class="nav-link" data-toggle="modal" data-target="#registrasiModal">Registrasi</a>
-						</div>
-					</li>
-	
-					<!-- Elements for logged-in users -->
-					<li class="nav-item dropdown logged-in" style="display: none;">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="#" id="logoutButton">Logout</a>
-						</div>
-					</li>
-				</ul>
+			  <ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="checkLogin(event)">Shop</a>
+				  <div class="dropdown-menu" aria-labelledby="dropdown04">
+					<a href="#" class="dropdown-item" onclick="checkLogin(event, 'shop.html')">Shop</a>
+					<a href="#" class="dropdown-item" onclick="checkLogin(event, 'product-single.html')">Single Product</a>
+				  </div>
+				</li>
+				<li class="nav-item cart active"><a href="#" class="nav-link" onclick="checkLogin(event, 'cart.html')"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
+				<li class="nav-item"><a href="#" class="nav-link" onclick="logout()" id="logoutLink" style="display: none;">Logout</a></li>
+				<li class="nav-item dropdown" id="loginLink">
+					<a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="checkLogin(event)">Account</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						<a href="#" class="dropdown-item" data-toggle="modal" data-target="#registrasiModal">Registrasi</a>
+						<a href="#" class="dropdown-item" data-toggle="modal" data-target="#loginModal">Login</a>
+					</div>
+				</li>
+			  </ul>
 			</div>
-		</div>
-	</nav>
+		  </div>
+		</nav>
+		  
 	
-	<!-- Registrasi Modal -->
-	<div class="modal fade" id="registrasiModal" tabindex="-1" role="dialog" aria-labelledby="registrasiModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content" style="background-color: black;">
-				<div class="modal-header">
-					<h5 class="modal-title" id="registrasiModalLabel">Registrasi</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="registrasiForm">
-						<div class="form-group">
-							<label for="registrasiEmail">Email address</label>
-							<input type="email" class="form-control" id="registrasiEmail" placeholder="text here">
-						</div>
-						<div class="form-group">
-							<label for="registrasiPassword">Password</label>
-							<input type="password" class="form-control" id="registrasiPassword" placeholder="text here">
-						</div>
-						<div class="form-group">
-							<label for="registrasiConfirmPassword">Confirm Password</label>
-							<input type="password" class="form-control" id="registrasiConfirmPassword" placeholder="text here">
-						</div>
-						<button type="submit" class="btn btn-primary">Register</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Login Modal -->
+		<!-- Login Modal -->
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" style="background-color: black;">
@@ -120,13 +82,124 @@
 							<label for="loginPassword">Password</label>
 							<input type="password" class="form-control" id="loginPassword" placeholder="text here">
 						</div>
+						<p>Anda belum punya akun? <a href="#" data-toggle="modal" data-target="#registrasiModal">Registrasi di sini</a></p>
 						<button type="submit" class="btn btn-primary">Login</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- registrasi Modal -->
+	<div class="modal fade" id="registrasiModal" tabindex="-1" role="dialog" aria-labelledby="registrasiModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content" style="background-color: black;">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="registrasiModalLabel">REGISTRASI</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <form id="registrasiForm">
+				<div class="form-group">
+				  <label for="registrasiEmail">Email address</label>
+				  <input type="email" class="form-control" id="registrasiEmail" placeholder="text here" required>
+				</div>
+				<div class="form-group">
+				  <label for="registrasiPassword">Password</label>
+				  <input type="password" class="form-control" id="registrasiPassword" placeholder="text here" required>
+				</div>
+				<div class="form-group">
+				  <label for="registrasiConfirmPassword">Confirm Password</label>
+				  <input type="password" class="form-control" id="registrasiConfirmPassword" placeholder="text here" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Login</button>
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  
+	  <script>
+		// Cek apakah user sudah login
+		function isLoggedIn() {
+		  return localStorage.getItem('loggedIn') === 'true';
+		}
 	
+		// Fungsi untuk mengecek status login
+		function checkLogin(event, redirectUrl) {
+		  if (!isLoggedIn()) {
+			event.preventDefault();
+			$('#loginModal').modal('show');
+		  } else if (redirectUrl) {
+			window.location.href = redirectUrl;
+		  }
+		}
+	
+		// Fungsi untuk logout
+		function logout() {
+		  localStorage.removeItem('loggedIn');
+		  alert('Anda telah logout.');
+		  updateLoginStatus();
+		}
+	
+		// Fungsi untuk mengupdate tampilan login/logout
+		function updateLoginStatus() {
+		  if (isLoggedIn()) {
+			document.getElementById('loginLink').style.display = 'none';
+			document.getElementById('logoutLink').style.display = 'block';
+		  } else {
+			document.getElementById('loginLink').style.display = 'block';
+			document.getElementById('logoutLink').style.display = 'none';
+		  }
+		}
+	
+		// Form submission event listener
+		document.getElementById('registrasiForm').addEventListener('submit', function(event) {
+		  event.preventDefault();
+		  // Ambil nilai dari input username dan password
+		  var email = document.getElementById('registrasiEmail').value;
+		  var password = document.getElementById('registrasiPassword').value;
+		  var valid = document.getElementById('registrasiConfirmPassword').value;
+	
+		  // Cek kredensial login
+		  alert('email :  admin@gmail.com  Password :  123456');
+		  if (email === 'muhammadalif1213@gmail.com' && password === '123456' && valid === '123456') {
+			localStorage.setItem('loggedIn', 'true');
+			$('#registrasiModal').modal('hide');
+			alert('Registrasi berhasil! Anda sekarang sudah login.');
+			updateLoginStatus();
+		  } else {
+			alert('Username atau password salah. Silakan coba lagi.');
+		  }
+		});
+
+		// Form submission event listener
+		document.getElementById('loginForm').addEventListener('submit', function(event) {
+		  event.preventDefault();
+		  // Ambil nilai dari input username dan password
+		  var email1 = document.getElementById('loginEmail').value;
+		  var password1 = document.getElementById('loginPassword').value;
+	
+		  // Cek kredensial login
+		  if (email1 === 'muhammadalif1213@gmail.com' && password1 === '123456') {
+			localStorage.setItem('loggedIn', 'true');
+			$('#loginForm').modal('hide');
+			alert('Login berhasil! Anda sekarang sudah login.');
+			updateLoginStatus();
+		  } else {
+			alert('Username atau password salah. Silakan coba lagi.');
+		  }
+		});
+	
+		// Update status login saat halaman dimuat
+		document.addEventListener('DOMContentLoaded', function() {
+		  updateLoginStatus();
+		});
+		
+		</script>
+  
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
@@ -162,28 +235,28 @@
 						        <th>Total</th>
 						      </tr>
 						    </thead>
-						    <tbody>
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/menu-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Creamy Latte Coffee</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$4.90</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$4.90</td>
-						      </tr><!-- END TR-->
-
+						    <tbody id="cart-body" class="align-middle">
+								<tr class="text-center">
+									<td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
+									
+									<td class="image-prod"><div class="img" style="background-image:url(images/menu-2.jpg);"></div></td>
+									
+									<td class="product-name">
+										<h3>Creamy Latte Coffee</h3>
+										<p>Far far away, behind the word mountains, far from the countries</p>
+									</td>
+									
+									<td class="price">$<span class="price-value">4.90</span></td>
+									
+									<td class="quantity">
+										<div class="input-group mb-3">
+											<input type="number" name="quantity" class="form-control quantity-input" value="1" min="1" max="100">
+										</div>
+									</td>
+									
+									<td class="total">$<span class="total-value">4.90</span></td>
+								</tr>
+								
 						      <tr class="text-center">
 						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
 						        
@@ -194,15 +267,15 @@
 						        	<p>Far far away, behind the word mountains, far from the countries</p>
 						        </td>
 						        
-						        <td class="price">$15.70</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$15.70</td>
+						        <td class="price">$<span class="price-value">4.90</span></td>
+									
+									<td class="quantity">
+										<div class="input-group mb-3">
+											<input type="number" name="quantity" class="form-control quantity-input" value="1" min="1" max="100">
+										</div>
+									</td>
+									
+								<td class="total">$<span class="total-value">4.90</span></td>
 						      </tr><!-- END TR-->
 						    </tbody>
 						  </table>
@@ -237,64 +310,6 @@
 			</div>
 		</section>
 
-    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-          	<span class="subheading">Discover</span>
-            <h2 class="mb-4">Related products</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-1.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-2.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-3.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/menu-4.jpg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>$5.90</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        </div>
-    	</div>
-    </section>
-
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
       <div class="container">
@@ -327,7 +342,7 @@
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Jl. Brawijaya, Geblagan, Tamantirto, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55183</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 878-7013-3425</span></a></li>
+	                <li><a href="https://wa.me/+6289604639862"><span class="icon icon-phone"></span><span class="text">+62 878-7013-3425</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">bcoffee@umy.ac.id</span></a></li>
 	              </ul>
 	            </div>
@@ -369,6 +384,133 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/login.js"></script>
+
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// Mendapatkan semua input quantity
+		const quantityInputs = document.querySelectorAll('.quantity-input');
+	
+		quantityInputs.forEach(input => {
+			input.addEventListener('input', function() {
+				// Mendapatkan nilai quantity dan price
+				const quantity = parseFloat(this.value);
+				const priceElement = this.closest('tr').querySelector('.price .price-value');
+				const price = parseFloat(priceElement.textContent);
+	
+				// Menghitung total harga
+				const total = quantity * price;
+	
+				// Memperbarui elemen total
+				const totalElement = this.closest('tr').querySelector('.total .total-value');
+				totalElement.textContent = total.toFixed(2);
+			});
+		});
+	});
+	</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		renderCart();
+	});
+
+	function renderCart() {
+		const cartBody = document.getElementById('cart-body');
+		const productsList = document.getElementById('products-list');
+		const cart = JSON.parse(localStorage.getItem('cart')) || [];
+		cartBody.innerHTML = '';
+		productsList.innerHTML = '';
+
+		let subtotal = 0;
+
+		cart.forEach((item, index) => {
+			const total = item.price * item.quantity;
+			subtotal += total;
+
+			const row = document.createElement('tr');
+			row.innerHTML = `
+				<td class="align-middle"><img src="${item.image}" alt="" style="width: 50px;"> ${item.product}</td>
+				<td class="align-middle">Rp ${item.price.toLocaleString()}</td>
+				<td class="align-middle">
+					<div class="input-group quantity mx-auto" style="width: 100px;">
+						<div class="input-group-btn">
+							<button class="btn btn-sm btn-primary btn-minus" onclick="updateQuantity(${index}, -1)">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+						<input type="text" class="form-control form-control-sm bg-secondary text-center quantity-input" value="${item.quantity}" readonly>
+						<div class="input-group-btn">
+							<button class="btn btn-sm btn-primary btn-plus" onclick="updateQuantity(${index}, 1)">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+					</div>
+				</td>
+				<td class="align-middle total-price">Rp ${total.toLocaleString()}</td>
+				<td class="align-middle"><button class="btn btn-sm btn-primary" onclick="removeFromCart(${index})"><i class="fa fa-times"></i></button></td>
+			`;
+			cartBody.appendChild(row);
+
+			const productDetail = document.createElement('div');
+			productDetail.className = 'd-flex justify-content-between';
+			productDetail.innerHTML = `
+			<p>${item.product}</p>
+			<p>Rp ${item.price.toLocaleString()}</p>
+			`;
+			productsList.appendChild(productDetail);
+		});
+
+		document.getElementById('subtotal').innerText = Rp `${subtotal.toLocaleString()}`;
+		const shipping = 10000;
+		const total = subtotal + shipping;
+		document.getElementById('total').innerText = Rp `${total.toLocaleString()}`;
+	}
+
+	function updateQuantity(index, change) {
+		let cart = JSON.parse(localStorage.getItem('cart')) || [];
+		if (cart[index].quantity + change > 0) {
+			cart[index].quantity += change;
+		} else if (change < 0) {
+			cart[index].quantity = 1;
+		}
+		localStorage.setItem('cart', JSON.stringify(cart));
+		renderCart();
+	}
+
+	function removeFromCart(index) {
+		let cart = JSON.parse(localStorage.getItem('cart')) || [];
+		cart.splice(index, 1);
+		localStorage.setItem('cart', JSON.stringify(cart));
+		renderCart();
+	}
+	
+	function placeOrder() {
+		alert("Order Successfully");
+	}
+
+	function updateCartFromDetailView() {
+const quantity = parseInt(document.querySelector('.quantity input').value);
+// Assuming you have a product ID or similar identifier
+const productId = 'your-product-id';
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const productIndex = cart.findIndex(item => item.id === productId);
+if (productIndex > -1) {
+	cart[productIndex].quantity = quantity;
+} else {
+	// Add new product if not found in the cart (customize this as needed)
+	cart.push({
+		id: productId,
+		product: 'Your Product Name',
+		price: 'Your Product Price',
+		quantity: quantity,
+		image: 'Your Product Image'
+	});
+}
+localStorage.setItem('cart', JSON.stringify(cart));
+renderCart();
+}
+</script>
+	
 
     
   </body>
