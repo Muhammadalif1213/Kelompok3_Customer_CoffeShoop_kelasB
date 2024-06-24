@@ -165,7 +165,7 @@
 	
 		  // Cek kredensial login
 		  alert('email :  admin@gmail.com  Password :  123456');
-		  if (email === 'muhammadalif1213@gmail.com' && password === '123456' && valid === '123456') {
+		  if (email === 'admin@mail.com' && password === '123456' && valid === '123456') {
 			localStorage.setItem('loggedIn', 'true');
 			$('#registrasiModal').modal('hide');
 			alert('Registrasi berhasil! Anda sekarang sudah login.');
@@ -183,7 +183,7 @@
 		  var password1 = document.getElementById('loginPassword').value;
 	
 		  // Cek kredensial login
-		  if (email1 === 'muhammadalif1213@gmail.com' && password1 === '123456') {
+		  if (email1 === 'admin@mail.com' && password1 === '123456') {
 			localStorage.setItem('loggedIn', 'true');
 			$('#loginForm').modal('hide');
 			alert('Login berhasil! Anda sekarang sudah login.');
@@ -386,6 +386,9 @@
   <script src="js/login.js"></script>
 
   <script>
+
+
+
 	document.addEventListener('DOMContentLoaded', function() {
 		// Mendapatkan semua input quantity
 		const quantityInputs = document.querySelectorAll('.quantity-input');
@@ -409,61 +412,62 @@
 	</script>
 
 <script>
+
+function calculateCartTotal() {
+    let cartBody = document.getElementById('cart-body');
+    let rows = cartBody.getElementsByTagName('tr');
+    let subtotal = 0;
+
+    // Loop through each row in the cart table
+    for (let i = 0; i < rows.length; i++) {
+        let row = rows[i];
+        
+        // Get the price and quantity elements
+        let priceElement = row.querySelector('.price .price-value');
+        let quantityElement = row.querySelector('.quantity .quantity-input');
+        let totalElement = row.querySelector('.total .total-value');
+
+        // Parse the price and quantity values
+        let price = parseFloat(priceElement.textContent);
+        let quantity = parseInt(quantityElement.value);
+        
+        // Calculate the total for the current row
+        let total = price * quantity;
+
+        // Update the total value in the table
+        totalElement.textContent = total.toFixed(2);
+
+        // Add to the subtotal
+        subtotal += total;
+    }
+
+    // Update the subtotal in the cart summary
+    document.querySelector('.cart-total .d-flex:nth-child(1) span:nth-child(2)').textContent = `$${subtotal.toFixed(2)}`;
+
+    // Assume delivery is always $0.00 (as per the given HTML)
+    let delivery = 0;
+
+    // Assume discount is always $3.00 (as per the given HTML)
+    let discount = 3.00;
+
+    // Calculate the final total
+    let finalTotal = subtotal + delivery - discount;
+
+    // Update the final total in the cart summary
+    document.querySelector('.cart-total .total-price span:nth-child(2)').textContent = `$${finalTotal.toFixed(2)}`;
+}
+
+// Event listener to recalculate total when quantity changes
+document.querySelectorAll('.quantity-input').forEach(input => {
+    input.addEventListener('change', calculateCartTotal);
+});
+
+// Initial calculation when the page loads
+calculateCartTotal();
+
 	document.addEventListener('DOMContentLoaded', () => {
 		renderCart();
 	});
-
-	function renderCart() {
-		const cartBody = document.getElementById('cart-body');
-		const productsList = document.getElementById('products-list');
-		const cart = JSON.parse(localStorage.getItem('cart')) || [];
-		cartBody.innerHTML = '';
-		productsList.innerHTML = '';
-
-		let subtotal = 0;
-
-		cart.forEach((item, index) => {
-			const total = item.price * item.quantity;
-			subtotal += total;
-
-			const row = document.createElement('tr');
-			row.innerHTML = `
-				<td class="align-middle"><img src="${item.image}" alt="" style="width: 50px;"> ${item.product}</td>
-				<td class="align-middle">Rp ${item.price.toLocaleString()}</td>
-				<td class="align-middle">
-					<div class="input-group quantity mx-auto" style="width: 100px;">
-						<div class="input-group-btn">
-							<button class="btn btn-sm btn-primary btn-minus" onclick="updateQuantity(${index}, -1)">
-								<i class="fa fa-minus"></i>
-							</button>
-						</div>
-						<input type="text" class="form-control form-control-sm bg-secondary text-center quantity-input" value="${item.quantity}" readonly>
-						<div class="input-group-btn">
-							<button class="btn btn-sm btn-primary btn-plus" onclick="updateQuantity(${index}, 1)">
-								<i class="fa fa-plus"></i>
-							</button>
-						</div>
-					</div>
-				</td>
-				<td class="align-middle total-price">Rp ${total.toLocaleString()}</td>
-				<td class="align-middle"><button class="btn btn-sm btn-primary" onclick="removeFromCart(${index})"><i class="fa fa-times"></i></button></td>
-			`;
-			cartBody.appendChild(row);
-
-			const productDetail = document.createElement('div');
-			productDetail.className = 'd-flex justify-content-between';
-			productDetail.innerHTML = `
-			<p>${item.product}</p>
-			<p>Rp ${item.price.toLocaleString()}</p>
-			`;
-			productsList.appendChild(productDetail);
-		});
-
-		document.getElementById('subtotal').innerText = Rp `${subtotal.toLocaleString()}`;
-		const shipping = 10000;
-		const total = subtotal + shipping;
-		document.getElementById('total').innerText = Rp `${total.toLocaleString()}`;
-	}
 
 	function updateQuantity(index, change) {
 		let cart = JSON.parse(localStorage.getItem('cart')) || [];

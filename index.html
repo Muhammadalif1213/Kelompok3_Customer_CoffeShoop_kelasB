@@ -27,6 +27,28 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+	<style>
+        .menu-entry .img {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 200px; /* Sesuaikan dengan tinggi gambar yang diinginkan */
+            transition: transform 0.3s ease;
+        }
+
+        .menu-entry .img:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Warna latar belakang ketika hover */
+            border-color: #0056b3; /* Warna border ketika hover */
+            color: #fff; /* Warna teks ketika hover */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
+
   </head>
   <body>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -165,7 +187,7 @@
 		  var valid = document.getElementById('registrasiConfirmPassword').value;
 	
 		  // Cek kredensial login
-		  if (email === 'muhammadalif1213@gmail.com' && password === '123456' && valid === '123456') {
+		  if (email === '@adminmail.com' && password === '123456' && valid === '123456') {
 			localStorage.setItem('loggedIn', 'true');
 			$('#registrasiModal').modal('hide');
 			alert('Registrasi berhasil! Anda sekarang sudah login.');
@@ -183,7 +205,7 @@
 		  var password1 = document.getElementById('loginPassword').value;
 	
 		  // Cek kredensial login
-		  if (email1 === 'muhammadalif1213@gmail.com' && password1 === '123456') {
+		  if (email1 === 'muhammadalif@mail.com' && password1 === '123456') {
 			localStorage.setItem('loggedIn', 'true');
 			$('#loginForm').modal('hide');
 			alert('Login berhasil! Anda sekarang sudah login.');
@@ -285,46 +307,52 @@
 					<h2 class="mb-4">Kisah Kami</h2>
 				</div>
 				<div>
-					<p>Dalam perjalanannya, ia bertemu dengan sebuah salinan. Salinan itu memperingatkan Teks Buta Kecil, bahwa dari mana ia berasal, teks itu akan telah ditulis ulang ribuan kali dan semua yang tersisa dari asalnya hanyalah kata "dan" dan Teks Buta Kecil harus berbalik dan kembali ke negaranya yang aman. Namun, tidak ada yang dikatakan oleh salinan itu yang bisa meyakinkannya, dan tidak lama kemudian beberapa Penulis Salinan yang licik menyergapnya, membuatnya mabuk dengan Longe dan Parole, dan menyeretnya ke agen mereka, di mana mereka menyalahgunakannya untuk tujuan mereka.</p>
+					<p>Kisah kami berawal dari hasrat mendalam untuk menciptakan pengalaman kopi terbaik. Setiap cangkir yang kami sajikan adalah hasil dedikasi dan kecintaan terhadap seni menyeduh kopi. Kami percaya bahwa setiap butir kopi memiliki cerita, dan kami di sini untuk membagikannya kepada Anda dalam setiap tegukan.</p>
+				</div>
+			</div>
+		</div>		
+	</section>
+
+    <section class="ftco-section ftco-services">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 ftco-animate">
+					<div class="media d-block text-center block-6 services">
+						<div class="icon d-flex justify-content-center align-items-center mb-5">
+							<span class="flaticon-choices"></span>
+						</div>
+						<div class="media-body">
+							<h3 class="heading">Mudah untuk Dipesan</h3>
+							<p>Proses pemesanan kami dirancang agar mudah dan cepat, memungkinkan Anda untuk menikmati kopi favorit Anda tanpa repot.</p>
+						</div>
+					</div>      
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="media d-block text-center block-6 services">
+						<div class="icon d-flex justify-content-center align-items-center mb-5">
+							<span class="flaticon-coffee-cup"></span>
+						</div>
+						<div class="media-body">
+							<h3 class="heading">Layanan Kami</h3>
+							<p>Kami menyediakan berbagai layanan, mulai dari tempat yang nyaman untuk bersantai hingga layanan pesan antar untuk kenyamanan Anda.</p>
+						</div>
+					</div>      
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="media d-block text-center block-6 services">
+						<div class="icon d-flex justify-content-center align-items-center mb-5">
+							<span class="flaticon-coffee-bean"></span>
+						</div>
+						<div class="media-body">
+							<h3 class="heading">Kopi Berkualitas</h3>
+							<p>Kami hanya menggunakan biji kopi terbaik yang dipilih dengan cermat untuk memastikan setiap cangkir kopi yang Anda nikmati memiliki rasa yang luar biasa.</p>
+						</div>
+					</div>    
 				</div>
 			</div>
 		</div>
 	</section>
-
-    <section class="ftco-section ftco-services">
-    	<div class="container">
-    		<div class="row">
-          <div class="col-md-4 ftco-animate">
-            <div class="media d-block text-center block-6 services">
-              <div class="icon d-flex justify-content-center align-items-center mb-5">
-              	<span class="flaticon-choices"></span>
-              </div>
-              <div class="media-body">
-				<h3 class="heading">Mudah untuk Dipesan</h3>
-				<p>Bahkan Pointing yang sangat kuat pun tidak memiliki kendali atas teks buta, itu hampir tidak ortografis.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="media d-block text-center block-6 services">
-				<div class="media-body">
-					<h3 class="heading">Our Services</h3>
-				</div>
-            </div>      
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="media d-block text-center block-6 services">
-              <div class="icon d-flex justify-content-center align-items-center mb-5">
-              	<span class="flaticon-coffee-bean"></span></div>
-              <div class="media-body">
-				<h3 class="heading">Kopi Berkualitas</h3>
-				<p>Bahkan Pointing yang sangat kuat pun tidak memiliki kendali atas teks buta, itu hampir tidak ortografis.</p>
-              </div>
-            </div>    
-          </div>
-        </div>
-    	</div>
-    </section>
+	
 
     <section class="ftco-section">
 		<div class="container">
@@ -333,10 +361,10 @@
 					<div class="heading-section text-md-right ftco-animate">
 						<span class="subheading">Temukan</span>
 						<h2 class="mb-4">Menu Kami</h2>
-						<p class="mb-4">Jauh di sana, di balik pegunungan kata, jauh dari negeri Vokalia dan Consonantia, hiduplah teks-teks buta. Mereka tinggal terpisah di Bookmarksgrove tepat di pantai Semantics, sebuah samudra bahasa yang luas.</p>
+						<p class="mb-4">Temukan beragam pilihan kopi yang diseduh dengan sempurna dan berbagai hidangan lezat yang siap memanjakan lidah Anda. Dari kopi klasik hingga kreasi modern, setiap tegukan adalah petualangan rasa yang tak terlupakan.</p>
 						<p><a href="menu.html" class="btn btn-primary btn-outline-primary px-4 py-3">Lihat Menu Lengkap</a></p>
 					</div>
-				</div>
+				</div>				
 				<div class="col-md-6">
 					<div class="row">
 						<div class="col-md-6">
@@ -419,7 +447,7 @@
           <div class="col-md-7 heading-section ftco-animate text-center">
           	<span class="subheading">Temukan</span>
 			  <h2 class="mb-4">Penjual Kopi Terbaik</h2>
-			  <p>Jauh di sana, di balik pegunungan kata, jauh dari negeri Vokalia dan Consonantia.</p>
+			  <p>Jauh di sana, di balik aroma biji kopi yang baru digiling, Anda akan menemukan penjual kopi yang siap memanjakan lidah Anda dengan cita rasa yang tak terlupakan.</p>
           </div>
         </div>
         <div class="row">
@@ -428,7 +456,7 @@
     					<div class="img" style="background-image: url(images/menu-1.jpg);"></div>
     					<div class="text text-center pt-4">
     						<h3><a href="#">Kopi Cappuccino</a></h3>
-                        <p>Sebuah sungai kecil bernama Duden mengalir di dekat tempat mereka dan menyuplai segala kebutuhan</p>
+                        <p>Kombinasi sempurna antara espresso, susu panas, dan buih susu yang halus, siap menemani setiap momen istimewa Anda.</p>
     					</div>
     				</div>
         	</div>
@@ -436,8 +464,8 @@
         		<div class="menu-entry">
 					<div class="img" style="background-image: url(images/menu-2.jpg);"></div>
     					<div class="text text-center pt-4">
-    						<h3><a href="#">Kopi Cappuccino</a></h3>
-                        <p>Sebuah sungai kecil bernama Duden mengalir di dekat tempat mereka dan menyuplai segala kebutuhan</p>
+    						<h3><a href="#">Kopi Latte</a></h3>
+                        <p>Espresso dengan lapisan susu panas yang creamy, menciptakan sensasi rasa yang lembut dan nikmat di setiap tegukan.</p>
     					</div>
     				</div>
         	</div>
@@ -445,8 +473,8 @@
         		<div class="menu-entry">
 					<div class="img" style="background-image: url(images/menu-3.jpg);"></div>
     					<div class="text text-center pt-4">
-    						<h3><a href="#">Kopi Cappuccino</a></h3>
-                        <p>Sebuah sungai kecil bernama Duden mengalir di dekat tempat mereka dan menyuplai segala kebutuhan</p>
+    						<h3><a href="#">Kopi Americano</a></h3>
+                        <p>Minuman klasik yang terbuat dari campuran espresso dan air panas, memberikan rasa kopi yang kuat dan autentik.</p>
     					</div>
     				</div>
         	</div>
@@ -454,8 +482,8 @@
         		<div class="menu-entry">
 					<div class="img" style="background-image: url(images/menu-4.jpg);"></div>
     					<div class="text text-center pt-4">
-    						<h3><a href="#">Kopi Cappuccino</a></h3>
-                        <p>Sebuah sungai kecil bernama Duden mengalir di dekat tempat mereka dan menyuplai segala kebutuhan</p>
+    						<h3><a href="#">Espresso</a></h3>
+                        <p>Ekstraksi murni biji kopi pilihan, menghasilkan minuman dengan cita rasa yang kaya dan aroma yang menggoda.</p>
     					</div>
     				</div>
         	</div>
@@ -463,12 +491,14 @@
     	</div>
     </section>
 
+
     <section class="ftco-gallery">
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 			  <div class="col-md-7 heading-section text-center ftco-animate">
 				  <span class="subheading">Dokumentasi</span>
 				<h2 class="mb-4">Pengunjung</h2>
+				<p>Setiap kunjungan ke kedai kopi kami adalah pengalaman yang berharga, mengabadikan momen-momen indah bersama secangkir kopi.</p>
 			  </div>
 			</div>
 		  </div>
@@ -490,6 +520,7 @@
     	</div>
     </section>
 
+
     <section class="ftco-section img" id="ftco-testimony" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -497,7 +528,7 @@
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<span class="subheading">Testimoni</span>
 					<h2 class="mb-4">Kata Pelanggan</h2>
-					<p>Jauh di sana, di balik pegunungan kata, jauh dari negeri Vokalia dan Consonantia.</p>
+					<p>Rasakan cerita dari para pelanggan kami yang telah menikmati setiap tegukan dan merasakan kehangatan dari secangkir kopi kami.</p>
 				</div>
 			</div>
 		</div>
@@ -506,7 +537,7 @@
 				<div class="col-lg align-self-sm-end ftco-animate">
 					<div class="testimony">
 						<blockquote>
-							<p>&ldquo;Bahkan Pointing yang sangat kuat pun tidak memiliki kendali atas teks-teks buta, itu hampir tidak ortografis. Suatu hari, teks buta kecil memutuskan untuk pergi ke Dunia Tata Bahasa yang jauh.&rdquo;</p>
+							<p>&ldquo;Kopi di sini benar-benar luar biasa! Aroma dan rasa yang ditawarkan membuat saya selalu ingin kembali lagi.&rdquo;</p>
 						</blockquote>
 						<div class="author d-flex mt-4">
 							<div class="image mr-3 align-self-center">
@@ -519,58 +550,59 @@
 				<div class="col-lg align-self-sm-end">
 					<div class="testimony overlay">
 						<blockquote>
-							<p>&ldquo;Bahkan Pointing yang sangat kuat pun tidak memiliki kendali atas teks-teks buta, itu hampir tidak ortografis. Suatu hari, teks buta kecil memutuskan untuk pergi ke Dunia Tata Bahasa yang jauh.&rdquo;</p>
+							<p>&ldquo;Tempat yang sempurna untuk menikmati kopi sambil bekerja atau sekedar bersantai. Pelayanan yang ramah dan suasana yang nyaman.&rdquo;</p>
 						</blockquote>
 						<div class="author d-flex mt-4">
 							<div class="image mr-3 align-self-center">
 								<img src="images/person_2.jpg" alt="">
 							</div>
-							<div class="name align-self-center">Louise Kelly <span class="position">Desainer Ilustrator</span></div>
+							<div class="name align-self-center">John Doe <span class="position">Freelancer</span></div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg align-self-sm-end ftco-animate">
 					<div class="testimony">
 						<blockquote>
-							<p>&ldquo;Bahkan Pointing yang sangat kuat pun tidak memiliki kendali atas teks-teks buta, itu hampir tidak ortografis. Suatu hari, teks buta kecil memutuskan untuk pergi ke Dunia Tata Bahasa yang jauh.&rdquo;</p>
+							<p>&ldquo;Pilihan kopi yang beragam dan setiap cangkirnya dibuat dengan penuh perhatian. Saya sangat merekomendasikan tempat ini.&rdquo;</p>
 						</blockquote>
 						<div class="author d-flex mt-4">
 							<div class="image mr-3 align-self-center">
 								<img src="images/person_3.jpg" alt="">
 							</div>
-							<div class="name align-self-center">Louise Kelly <span class="position">Desainer Ilustrator</span></div>
+							<div class="name align-self-center">Jane Smith <span class="position">Blogger</span></div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg align-self-sm-end">
 					<div class="testimony overlay">
 						<blockquote>
-							<p>&ldquo;Bahkan Pointing yang sangat kuat pun tidak memiliki kendali atas teks-teks buta, itu hampir tidak ortografis. Suatu hari, teks buta kecil memutuskan untuk pergi ke Dunia Tata Bahasa yang jauh.&rdquo;</p>
+							<p>&ldquo;Setiap kunjungan ke sini selalu meninggalkan kesan yang baik. Kopi yang nikmat dan suasana yang hangat.&rdquo;</p>
 						</blockquote>
 						<div class="author d-flex mt-4">
 							<div class="image mr-3 align-self-center">
 								<img src="images/person_2.jpg" alt="">
 							</div>
-							<div class="name align-self-center">Louise Kelly <span class="position">Desainer Ilustrator</span></div>
+							<div class="name align-self-center">Emma Brown <span class="position">Penulis</span></div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg align-self-sm-end ftco-animate">
 					<div class="testimony">
 						<blockquote>
-							<p>&ldquo;Bahkan Pointing yang sangat kuat pun tidak memiliki kendali atas teks-teks buta, itu hampir tidak ortografis. Suatu hari, teks buta kecil memutuskan untuk pergi ke Dunia Tata Bahasa yang jauh.&rdquo;</p>
+							<p>&ldquo;Kopi di sini adalah yang terbaik yang pernah saya coba. Rasanya otentik dan selalu menyegarkan.&rdquo;</p>
 						</blockquote>
 						<div class="author d-flex mt-4">
 							<div class="image mr-3 align-self-center">
 								<img src="images/person_3.jpg" alt="">
 							</div>
-							<div class="name align-self-center">Louise Kelly <span class="position">Desainer Ilustrator</span></div>
+							<div class="name align-self-center">Alice Johnson <span class="position">Artis</span></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
 	
 	<div class="map_main">
 		<div class="map-responsive">
